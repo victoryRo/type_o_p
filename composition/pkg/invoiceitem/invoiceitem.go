@@ -16,7 +16,23 @@ func New(id uint, product string, value float64) Item {
 	}
 }
 
-// Value getter of Item.Value
-func (i Item) Value() float64 {
-	return i.value
+// Items is a slice of Item
+type Items []Item
+
+func NewItems(items ...Item) Items {
+	var is Items
+	for _, item := range items {
+		is = append(is, item)
+	}
+
+	return is
+}
+
+func (is Items) Total() float64 {
+	var total float64
+	for _, item := range is {
+		total += item.value
+	}
+
+	return total
 }

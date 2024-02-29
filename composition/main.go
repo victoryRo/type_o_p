@@ -9,11 +9,11 @@ import (
 
 func main() {
 	client := customer.New("Victor", "Calle 19 la fortune", "664 52 15")
-	items := []invoiceitem.Item{
+	items := invoiceitem.NewItems(
 		invoiceitem.New(1, "Laptops", 100.00),
-		invoiceitem.New(2, "Computer", 40.00),
-		invoiceitem.New(3, "Table", 80.10),
-	}
+		invoiceitem.New(2, "Computer", 70.00),
+		invoiceitem.New(3, "Table", 100.75),
+	)
 
 	inv := invoice.New("Colombia", "Popayàn", client, items)
 	inv.SetTotal()
